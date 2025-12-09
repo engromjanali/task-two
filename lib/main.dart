@@ -14,28 +14,14 @@ import 'package:power_state/power_state.dart';
 void main() async {
   await init();
   runApp(
-    // DevicePreview(enabled: !kReleaseMode, builder: (context) => _SCheckPoint()),
     DevicePreview(enabled: false, builder: (context) => _SCheckPoint()),
   );
-  // runApp(const _SCheckPoint());
 }
 
 // MyDebugToken D13CC233-97A1-42A1-A511-EC15AF3995E6
 Future<void> init() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  // await FirebaseAppCheck.instance.activate(
-  //   androidProvider: kReleaseMode
-  //       ? AndroidProvider.playIntegrity
-  //       : AndroidProvider.debug,
-  //   // set to true to use the default providers configured in console
-  //   // webProvider: ReCaptchaV3Provider('your-site-key'), // only for web if applicable
-  // );
-  //   await CNotification().requestPermission();
-  //   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-  //   await CNotification().initNotification();
-  // init base method otherwise we may get an error like "xyz was not initialized".
   await SharedPrefService.instance.init();
 }
 
